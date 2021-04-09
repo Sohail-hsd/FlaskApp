@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+<style>
+  .btn
+  {
+    border-radius: 30px;
+    border-bottom: springgreen;
+    border-bottom-right-radius: unset;
+    border-top-left-radius: unset;
+    
+  }
+  .ranbow
+    {
+    color: #282a2c;
+    animation: mymove 5s infinite;
+
+    }
+
+    @keyframes mymove {
+    from {color: #38363be1;}
+    to {color: #333c46d0;}
+    to {color: #34669c;}
+    to {color: #c02a5c;}
+
+    }
+
+
+</style>
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{ url_for('static',filename='img/1.jpg')}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>The <span class="ranbow">HSD</span>..!</h1>
+            <span class="subheading">A Blog by Sohail HSD.!&#128526;
+              &#10004;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+
+  {% for post in posts %}
+  <ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="post-preview">
+          <a href="/post/{{post.slug}}">
+            <h2 class="post-title">
+              {{post.title}}
+            </h2>
+            <h3 class="post-subtitle">
+              {{post.subheading}}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by {{post.date}}
+            <a href="/post/{{post.slug}}">The HSD.!</p>
+              {{post.content}}
+        </div>
+      </ul></a>
+
+      {% endfor  %}
+
+      <br>
+      <br>
+        
+        <!-- Pager -->
+
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="#", style="margin: 0px 380px 1px;margin-left: 430px;">Older Posts &rarr;</a>
+          <a class="btn btn-primary float-right" href="#", style="float: left;">&larr; New Post</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

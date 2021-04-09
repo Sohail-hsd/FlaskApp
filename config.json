@@ -1,0 +1,21 @@
+{
+    "params" :
+    {
+        "web_name" : "Sohail HSD",
+        "web_subname": "A Blog by Sohail HSD.!&#128526;&#10004;",
+        "local_server" : "True",
+        "local_uri" : "mysql://root:@localhost/HSD",
+        "prod_uri" : "",
+        "fb_url" : "https://facebook.com/hsd",
+        "tw_url" : "https://twitter.com/hsd",
+        "gh_url" : "https://github.com/hsd",
+        "num_post": 4,
+        "login_image": "slack.svg",
+        "admin_user" : "hsd",
+        "admin_pass": "hsd",
+        "file_path" : "E:\\Downloads\\App on Flask\\static\\uploaded_files"
+        
+    }
+}
+
+

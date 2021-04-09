@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% block body %}
+<header class="masthead" style="background-image: url('{{ url_for('static',filename='img/dash1.jpg')}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>DashBoard</h1>
+            <span class="subheading">You can Delete and Edith Post here.&#128526;
+              &#10004;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<h1 style="text-align: center;">Edit your posts here..!</h1>
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+      <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+      <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+      
+
+<form name="sentMessage" id="contactForm" novalidate action="/edit/{{post.Sno}}" method="POST">
+    <div class="control-group">
+      <div class="form-group floating-label-form-group controls">
+        <label>Title</label>
+        <input name="title" type="text" class="form-control" placeholder="title" id="title" required data-validation-required-message="Please enter your name." value="{{post.title}}">
+        <p class="help-block text-danger"></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="form-group floating-label-form-group controls">
+        <label>subheading</label>
+        <input name="subheading" type="text" class="form-control" placeholder="tagline" id="tagline" required data-validation-required-message="Please enter your email address." value="{{post.subheading}}">
+        <p class="help-block text-danger"></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="form-group col-xs-12 floating-label-form-group controls">
+        <label>slug</label>
+        <input type="text" name="slug" class="form-control" placeholder="slug" id="phone" required data-validation-required-message="Please enter your phone number." value="{{post.slug}}">
+        <p class="help-block text-danger"></p>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="form-group floating-label-form-group controls">
+        <label>Content</label>
+        <textarea rows="5"  name="content" class="form-control" placeholder="content" id="content" required data-validation-required-message="Please enter a message." value="">
+            {{post.content}}
+        </textarea>
+        <p class="help-block text-danger"></p>
+      </div>
+      <div class="control-group">
+        <div class="form-group col-xs-12 floating-label-form-group controls">
+          <label>Image file</label>
+          <input type="text" name="img_file" class="form-control" placeholder="Image file" id="image_file" required data-validation-required-message="Please enter your phone number." value="{{post.img_file}}" >
+          <p class="help-block text-danger"></p>
+        </div>
+      </div>
+    <br>
+    <div id="success"></div>
+    <button type="submit" class="btn btn-primary" id="sendMessageButton">Post</button>
+    <a href="/dashboard"><button type="submit" style="float: right;" class="btn btn-primary" id="sendMessageButton">Back to DashBoard</button></a>
+  </form>
+</div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

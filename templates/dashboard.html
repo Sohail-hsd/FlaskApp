@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Page Header -->
+<style>
+  .btn
+  {
+    border-radius: 30px;
+    border-bottom: springgreen;
+    border-bottom-right-radius: unset;
+    border-top-left-radius: unset;
+    
+  }
+
+</style>
+<header class="masthead" style="background-image: url('{{ url_for('static',filename='img/dash1.jpg')}}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>DashBoard</h1>
+            <span class="subheading">You can Delete and Edith Post here.&#128526;
+              &#10004;</span><br><br><br>
+
+              <a href="/logout" style="color: crimson;padding-bottom: 50px;"><button class="btn btn-primary" >LogOut <i class="fas fa-sign-out-alt"></i></button></a>
+        </div>
+        
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+<div class="row">
+  <div class="col-lg-8 col-md-10 mx-auto">
+<h1 style="text-align: center;">DashBoard</h1><br><br>
+<hr>
+<br>
+<form action="/uploader" method=post enctype=multipart/form-data>
+  <input type=file name=file>
+  <input type=submit value=Upload class="btn btn-primary">
+  <a href="/edit/0" ><button class="btn btn-primary" >Add New Post <i class="fas fa-sign-out-alt"></i></button></a>
+</form>
+  
+<br>
+<hr>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for post in posts %}
+    <tr>
+      <td>{{post.Sno}}</td>
+      <td>{{post.title}}</td>
+      <td>{{post.date}}</td>
+      <td><a class="nav-link" href="/edit/{{post.Sno}}" alt="Edit"><img src="{{url_for('static', filename='img/edit.png')}}" style="height:30px;width: auto;float: left; position: absolute;"></a>
+      <td><a class="nav-link" href="/edit/{{post.Sno}}" alt="Edit"><img src="{{url_for('static', filename='img/update.png')}}" style="height:30px;width: auto;float: left; position: absolute;"></a>
+      <td><a class="nav-link" href="/delete/{{post.Sno}}" alt="Delete"><img src="{{url_for('static', filename='img/delete.jpg')}}" style="height:30px;width: auto;float: left; position: absolute;"></a></tr>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+</div>
+
+
+{% endblock %}
